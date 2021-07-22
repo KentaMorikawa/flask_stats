@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>B1_2020-21_Stats</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <h1>B1 2020-2021 スタッツ</h1>
+        
+        <p>PTS:得点 FGM:フィールドゴール成功数 FGA:フィールドゴール試投数 F3GM:3P成功数 F3GA:3P試投数<br>
+            FTM:フリースロー成功数 FTM:フリースロー試投数 OR:オフェンシブリバウンド DR:ディフェンシブリバウンド TR:総リバウンド<br>
+            AS:アシスト TO:ターンオーバー BS:ブロックショット OE:オフェンシブエフィシェンシー PPP:Point Per Possession</p>
+
+        <form action="arrange" method="POST">
+            <select name=stats_type>
+                <option value="PTS">PTS</option>
+                <option value="FGM">FGM</option>
+                <option value="FGA">FGA</option>
+                <option value="F3GM">F3GM</option>
+                <option value="F3GA">F3GA</option>
+                <option value="FTM">FTM</option>
+                <option value="FTA">FTA</option>
+                <option value="Oreb">OR</option>
+                <option value="DR">DR</option>
+                <option value="TR">TR</option>
+                <option value="AST">AS</option>
+                <option value="TOV">TO</option>
+                <option value="BS">BS</option>
+                <option value="EFF">EFF</option>
+                <option value="OE">OE</option>
+                <option value="TS">TS%</option>
+                <option value="eFG">eFG</option>
+                <option value="PPP">PPP</option>
+            </select>
+            で並び替える！（＊大きい順）
+            <input type="submit" name="submit" value="実行">
+        </form>
+
+        <form action="figure" method="POST">
+            <select name=stats_type1>
+                <option value="PTS">PTS</option>
+                <option value="FGM">FGM</option>
+                <option value="FGA">FGA</option>
+                <option value="F3GM">F3GM</option>
+                <option value="F3GA">F3GA</option>
+                <option value="FTM">FTM</option>
+                <option value="FTA">FTA</option>
+                <option value="Oreb">OR</option>
+                <option value="DR">DR</option>
+                <option value="TR">TR</option>
+                <option value="AST">AS</option>
+                <option value="TOV">TO</option>
+                <option value="BS">BS</option>
+                <option value="EFF">EFF</option>
+                <option value="OE">OE</option>
+                <option value="TS">TS%</option>
+                <option value="eFG">eFG</option>
+                <option value="PPP">PPP</option>
+            </select>
+            と
+            <form action="figure" method="POST">
+                <select name=stats_type2>
+                    <option value="PTS">PTS</option>
+                    <option value="FGM">FGM</option>
+                    <option value="FGA">FGA</option>
+                    <option value="F3GM">F3GM</option>
+                    <option value="F3GA">F3GA</option>
+                    <option value="FTM">FTM</option>
+                    <option value="FTA">FTA</option>
+                    <option value="Oreb">OR</option>
+                    <option value="DR">DR</option>
+                    <option value="TR">TR</option>
+                    <option value="AST">AS</option>
+                    <option value="TOV">TO</option>
+                    <option value="BS">BS</option>
+                    <option value="EFF">EFF</option>
+                    <option value="OE">OE</option>
+                    <option value="TS">TS%</option>
+                    <option value="eFG">eFG</option>
+                    <option value="PPP">PPP</option>
+                </select>
+            の相関係数を見る！
+            <input type="submit" name="submit" value="実行">
+        </form>
+        <div class="table-responsive">
+        <table class="table table-hover">
+        <thead class='thead-light'>
+            <tr>
+                <th>Player</th>
+                <th>PTS</th>
+                <th>FGM</th>
+                <th>FGA</th>
+                <th>F3GM</th>
+                <th>F3GA</th>
+                <th>FTM</th>
+                <th>FTA</th>
+                <th>OR</th>
+                <th>DR</th>
+                <th>TR</th>
+                <th>AS</th>
+                <th>TO</th>
+                <th>BS</th>
+                <th>EFF</th>
+                <th>OE</th>
+                <th>TS%</th>
+                <th>eFG</th>
+                <th>PPP</th>
+            </tr>
+        </thead>
+            {% for s in stats %}
+            <tr>
+                <td>{{s[0]}}</td>
+                <td>{{s[1]}}</td>
+                <td>{{s[2]}}</td>
+                <td>{{s[3]}}</td>
+                <td>{{s[4]}}</td>
+                <td>{{s[5]}}</td>
+                <td>{{s[6]}}</td>
+                <td>{{s[7]}}</td>
+                <td>{{s[8]}}</td>
+                <td>{{s[9]}}</td>
+                <td>{{s[10]}}</td>
+                <td>{{s[11]}}</td>
+                <td>{{s[12]}}</td>
+                <td>{{s[13]}}</td>
+                <td>{{s[14]}}</td>
+                <td>{{s[15]}}</td>
+                <td>{{s[16]}}</td>
+                <td>{{s[17]}}</td>
+                <td>{{s[18]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </body>
+</html>
